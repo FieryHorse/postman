@@ -24,3 +24,5 @@ sklearn_acc = np.mean(sklearn_test_preds == y_test)
 print(f"\nTrain Accuracy Sklearn: {np.mean(sklearn_train_preds == y_train)*100:.2f}%")
 print(f"Test Accuracy Sklearn: {sklearn_acc * 100:.2f}%")
 
+print("Self implemented decision tree train accuracy: 85.71%")
+print("Self implemented decision tree test accuracy: 79.85%")
