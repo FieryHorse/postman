@@ -6,21 +6,21 @@ I implemented a **classification decision tree from scratch** in `my_code/decisi
 
 The tree uses **Gini impurity** as its split criterion. For a node containing classes with proportions \(p_1, p_2, \ldots, p_C\), the impurity is:
 
-\[
-Gini = 1 - \sum_{i=1}^{C} p_i^2
-\]
+$$
+Gini = 1 - \sum_{i} p_i^2
+$$
 
 For every candidate feature and threshold, the code divides the samples into left and right child nodes and computes the weighted impurity after the split:
 
-\[
+$$
 Gini_{split} = \frac{n_L}{n}Gini_L + \frac{n_R}{n}Gini_R
-\]
+$$
 
 The split with the largest impurity reduction is selected. Equivalently, the code maximises:
 
-\[
+$$
 Gain = Gini_{parent} - Gini_{split}
-\]
+$$
 
 The tree is represented recursively using a `Node` object. Each internal node stores the feature, threshold, and child nodes, while each leaf stores the majority-class prediction.
 
@@ -275,17 +275,5 @@ The experiments support the main ideas behind decision trees and random forests:
 6. On the tested noisy classification dataset, the random forest gave **slightly better average test accuracy than a single regularised tree** and showed only modest variation across repeated runs.
 
 Overall, the implementation demonstrates the progression:
-
-\[
-\text{Decision Tree}
-\rightarrow
-\text{Overfitting}
-\rightarrow
-\text{Regularisation}
-\rightarrow
-\text{Bagging + Random Features}
-\rightarrow
-\text{Random Forest}
-\]
 
 This project intentionally focuses on **classification** so that the core learning process and the effect of ensemble methods can be understood clearly without adding the extra machinery required for regression trees.
